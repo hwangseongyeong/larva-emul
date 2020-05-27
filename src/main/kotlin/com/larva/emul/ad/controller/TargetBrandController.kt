@@ -6,10 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/api/target-brand")
+@RequestMapping("/v1/api/target-brand")
 class TargetBrandController (
         private val targetBrandService: TargetBrandService
 ) {
+
+    @GetMapping
+    fun targetBrand(keyword: String) = targetBrandService.getTargetBrand(keyword)
 
     @GetMapping("/video")
     fun video(keyword: String) = targetBrandService.getVideo(keyword)
