@@ -60,12 +60,19 @@ data class Video (
         var mode: Int = 0,
         var depth: Int = 4,
         var landing: Landing = Landing(),
-        var link: Link = Link(),
-        var tracker: SearchTracker = SearchTracker()
+        var link: Link = Link()
 )
 
 data class Logo (
-        var addId: String = "1"
+        var creative: Creative,
+        var addId: String = "1",
+        var logoUrl: String = "https://img.wemep.co.kr/wmp-ad/92/92/05/1568612929205.jpg",
+        var brandName: String = "테스트",
+        var depth: Int = 0,
+        var mode: Int = 4,
+        var landing: Landing = Landing(),
+        var link: Link = Link(),
+        var tracker: SearchTracker = SearchTracker()
 )
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -78,9 +85,9 @@ data class Landing(
 }
 
 data class DealInfo (
+        var keyword: String,
+        var dealId: Long,
         var targetBrandCreativeId: Long = 1,
-        var dealId: Long = 600031707,
-        var keyword: String = "타겟브랜드",
         var dealType: Int = 0
 )
 

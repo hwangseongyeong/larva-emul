@@ -29,19 +29,38 @@ class TargetBrandService {
 
     fun getLogo(keyword:String): TargetBrandDto {
         var creative = Creative(Creative.Type.LOGO)
-        creative.logos = listOf(Logo(), Logo(), Logo(), Logo())
+
+        var logoCreative = Creative(Creative.Type.DEAL)
+        logoCreative.deals = listOf(DealInfo(keyword,146327698),
+                                    DealInfo(keyword,600031707),
+                                    DealInfo(keyword,603165348),
+                                    DealInfo(keyword,833852228),
+                                    DealInfo(keyword,443512113))
+
+        creative.logos = listOf(
+                            Logo(logoCreative),
+                            Logo(logoCreative),
+                            Logo(logoCreative),
+                            Logo(logoCreative))
+
         return TargetBrandDto(keyword, listOf(TargetBrand(keyword, creative)))
     }
 
     fun getDeal(keyword:String): TargetBrandDto {
         var creative = Creative(Creative.Type.DEAL)
-        creative.deals = listOf(DealInfo(),DealInfo(),DealInfo(),DealInfo(),DealInfo())
+        creative.deals = listOf(DealInfo(keyword,146327698),
+                                DealInfo(keyword,600031707),
+                                DealInfo(keyword,603165348),
+                                DealInfo(keyword,833852228),
+                                DealInfo(keyword,443512113))
         return TargetBrandDto(keyword, listOf(TargetBrand(keyword, creative)))
     }
 
     fun getNewProduct(keyword:String): TargetBrandDto {
         var creative = Creative(Creative.Type.NEW_PRODUCT)
-        creative.deals = listOf(DealInfo())
+        creative.deals = listOf(DealInfo(keyword,146327698),
+                                DealInfo(keyword,600031707),
+                                DealInfo(keyword,603165348))
         return TargetBrandDto(keyword, listOf(TargetBrand(keyword, creative)))
     }
 }
